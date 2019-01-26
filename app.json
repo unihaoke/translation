@@ -1,0 +1,58 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/team/team",
+    "pages/mine/mine",
+    "pages/index/translate",
+    "pages/explore/explore",
+    "pages/explore/post",
+    "pages/explore/tags",
+    "pages/explore/trans",
+    "pages/explore/upgrade",
+    "pages/mine/aboutus",
+    "pages/mine/advice",
+    "pages/mine/favourites",
+    "pages/mine/setting",
+    "pages/mine/sponsor",
+    "pages/mine/trans",
+    "pages/team/team_index",
+    "pages/team/team_message",
+    "pages/team/team_member"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "selectedColor": "#1296db",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "pages/imge/index.png",
+        "selectedIconPath": "pages/imge/index_select.png"
+      },
+      {
+        "pagePath": "pages/explore/explore",
+        "text": "发现",
+        "iconPath": "pages/imge/zoom_grey_64.png",
+        "selectedIconPath": "pages/imge/zoom_64.png"
+      },
+      {
+        "pagePath": "pages/team/team",
+        "text": "小组",
+        "iconPath": "pages/imge/team.png",
+        "selectedIconPath": "pages/imge/team_select.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "pages/imge/me.png",
+        "selectedIconPath": "pages/imge/me_select.png"
+      }
+    ]
+  }
+}
