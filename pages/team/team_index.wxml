@@ -4,7 +4,6 @@
 <view class="page__bd">
         
  <view class="weui-panel">
-            <view class="weui-panel__hd">任务列表</view>
             <view class="weui-panel__bd">
                 <view class="weui-media-box weui-media-box_text">
                     <view class="weui-media-box__title weui-media-box__title_in-text">金庸小说翻译</view>
@@ -17,7 +16,8 @@
                     </view>
                 </view>
             </view>
-
+    </view>
+    <view class="weui-panel">
             <view class="weui-panel__bd">
                 <view class="weui-media-box weui-media-box_text">
                     <view class="weui-media-box__title weui-media-box__title_in-text">悲惨世界小说翻译</view>

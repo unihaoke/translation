@@ -27,11 +27,39 @@
         </view>
       </view>
 </scroll-view>
+
+
+
 <!-- 弹出菜单-->
+<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+  <view class="modal-dialog" wx:if="{{showModal}}">
+    <view class="modal-title">加入小组</view>
+    <view class="modal-content">
+      <view class="modal-input">
+        <input placeholder-class="input-holder" type="number" maxlength="10" bindinput="inputChange" class="input" placeholder="请输入小组号"></input>
+      </view>
+    </view>
+    <view class="modal-footer">
+      <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+      <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+    </view>
+  </view>
+
+
+
+
+
+
+
+
+
+
+
+
+
 <view>
   <image src="/pages/imge/toast_task.png" class="img-style" animation="{{animCollect}}" bindtap="collect"></image>
   <image src="/pages/imge/toast_message.png" class="img-style" animation="{{animTranspond}}" bindtap="transpond"></image>
-  <image src="/pages/imge/issue_task.png" class="img-style" animation="{{animInput}}" bindtap="input"></image>
   <image src="/pages/imge/issue_task.png" class="img-plus-style" animation="{{animPlus}}" bindtap="plus"></image>
 </view>
 </view>

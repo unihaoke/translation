@@ -1,0 +1,6 @@
+/* pages/team/team_create.wxss */
+/* 让组件居中 */
+.team_create_pic{
+  display: flex;
+  justify-content: center;
+}

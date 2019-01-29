@@ -7,12 +7,13 @@ Page({
    * 页面的初始数据
    */
   data: {
+    showModal: false,
     isPopping: false,//是否已经弹出
     animPlus: {},//旋转动画
     animCollect: {},//item位移,透明度
     animTranspond: {},//item位移,透明度
-    animInput: {},//item位移,透明度
   },
+  
   //点击弹出
   plus: function () {
     if (this.data.isPopping) {
@@ -29,15 +30,50 @@ Page({
       })
     }
   },
-  input: function () {
-    console.log("input")
-  },
+  
   transpond: function () {
-    console.log("transpond")
+   wx.navigateTo({
+     url: '/pages/team/team_create',
+   })
   },
   collect: function () {
-    console.log("collect")
+    this.setData({
+      showModal: true
+    })
   },
+
+
+  /**
+     * 弹出框蒙层截断touchmove事件
+     */
+  preventTouchMove: function () {
+  },
+  /**
+   * 隐藏模态对话框
+   */
+  hideModal: function () {
+    this.setData({
+      showModal: false
+    });
+  },
+  /**
+   * 对话框取消按钮点击事件
+   */
+  onCancel: function () {
+    this.hideModal();
+  },
+  /**
+   * 对话框确认按钮点击事件
+   */
+  onConfirm: function () {
+    wx.showToast({
+      title: '提交成功',
+      icon: 'success',
+      duration: 2000
+    })
+    this.hideModal();
+  },
+
 
   //弹出动画
   popp: function () {
@@ -54,19 +90,16 @@ Page({
       duration: 500,
       timingFunction: 'ease-out'
     })
-    var animationInput = wx.createAnimation({
-      duration: 500,
-      timingFunction: 'ease-out'
-    })
+   
     animationPlus.rotateZ(180).step();
-    animationcollect.translate(-7, -60).rotateZ(180).opacity(1).step();
-    animationTranspond.translate(-7, -110).rotateZ(180).opacity(1).step();
-    animationInput.translate(-7, -160).rotateZ(180).opacity(1).step();
+    animationcollect.translate(-7, -60).rotateZ(360).opacity(1).step();
+    animationTranspond.translate(-7, -110).rotateZ(360).opacity(1).step();
+    
     this.setData({
       animPlus: animationPlus.export(),
       animCollect: animationcollect.export(),
       animTranspond: animationTranspond.export(),
-      animInput: animationInput.export(),
+      
     })
   },
   //收回动画
@@ -84,19 +117,16 @@ Page({
       duration: 500,
       timingFunction: 'ease-out'
     })
-    var animationInput = wx.createAnimation({
-      duration: 500,
-      timingFunction: 'ease-out'
-    })
+    
     animationPlus.rotateZ(0).step();
     animationcollect.translate(0, 0).rotateZ(0).opacity(0).step();
     animationTranspond.translate(0, 0).rotateZ(0).opacity(0).step();
-    animationInput.translate(0, 0).rotateZ(0).opacity(0).step();
+   
     this.setData({
       animPlus: animationPlus.export(),
       animCollect: animationcollect.export(),
       animTranspond: animationTranspond.export(),
-      animInput: animationInput.export(),
+      
     })
   },
   /**

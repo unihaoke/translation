@@ -18,7 +18,9 @@
     "pages/mine/trans",
     "pages/team/team_index",
     "pages/team/team_message",
-    "pages/team/team_member"
+    "pages/team/team_member",
+    "pages/team/team_create",
+    "pages/team/team_publish_news"
   ],
   "window": {
     "backgroundTextStyle": "light",

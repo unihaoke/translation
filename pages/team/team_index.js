@@ -30,7 +30,9 @@ Page({
   },
  
   transpond: function () {
-    console.log("transpond")
+    wx.navigateTo({
+      url: '/pages/team/team_publish_news',
+    })
   },
   collect: function () {
     console.log("collect")

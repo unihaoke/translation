@@ -1,2 +1,36 @@
 <!--pages/explore/trans.wxml-->
-<text>pages/explore/trans.wxml</text>
+<view class="page">
+<scroll-view class='page' scroll-y="true"  >
+<view class="page__bd">
+        
+ <view class="weui-panel">
+            <view class="weui-panel__bd">
+                <view class="weui-media-box weui-media-box_text">
+                    <view class="weui-media-box__title weui-media-box__title_in-text">金庸小说翻译</view>
+                    <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
+                    <view class="weui-media-box__info">
+                        <view class="weui-media-box__info__meta">英译中</view>
+                        <view class="weui-media-box__info__meta">剩余2天</view>
+                        <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">+100经验</view>
+                         <view class="weui-media-box__info__meta">未完成</view>
+                    </view>
+                </view>
+            </view>
+    </view>
+    <view class="weui-panel">
+            <view class="weui-panel__bd">
+                <view class="weui-media-box weui-media-box_text">
+                    <view class="weui-media-box__title weui-media-box__title_in-text">悲惨世界小说翻译</view>
+                    <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
+                    <view class="weui-media-box__info">
+                        <view class="weui-media-box__info__meta">英译中</view>
+                        <view class="weui-media-box__info__meta">剩余1天</view>
+                        <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">+500经验</view>
+                        <view class="weui-media-box__info__meta">未完成</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+      </view>
+</scroll-view>
+</view>

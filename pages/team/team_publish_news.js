@@ -1,4 +1,4 @@
-// pages/me/me.js
+// pages/team/team_publish_news.js
 Page({
 
   /**
