@@ -1,4 +1,5 @@
 <!--pages/team/team_message.wxml-->
+<view class="page">
 <scroll-view class='page' scroll-y="true">
   <view class="page__bd">
     <view class="page__bd">
@@ -23,5 +24,12 @@
     </view>
   </view>
 </scroll-view>
+ <!-- 弹出菜单-->
+<view>
+  <image src="/pages/imge/toast_task.png" class="img-style" animation="{{animCollect}}" bindtap="collect"></image>
+  <image src="/pages/imge/toast_message.png" class="img-style" animation="{{animTranspond}}" bindtap="transpond"></image>
+  <image src="/pages/imge/issue_task.png" class="img-plus-style" animation="{{animPlus}}" bindtap="plus"></image>
+</view>
+</view>
 <import src="../template/tabBar.wxml" />
 <template is="tabBar" data="{{tabBar: tabBar}}" />

@@ -1,62 +1,72 @@
 <!--pages/team/team_member.wxml-->
+<view class="page">
 <view class="page__bd">
-        <view class="weui-panel weui-panel_access">
-            <view class="weui-panel__bd">
-                <navigator url="/pages/team/team_index" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" >
-                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-                        <image class="weui-media-box__thumb" src="../imge/1.jpg" />
-                    </view>
-                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-                        <view class="weui-media-box__title">新东方组</view>
-                        <view class="weui-media-box__desc">组长:zzz   小组号123456</view>
-                    </view>
-                </navigator> 
-            </view>
+  <view class="weui-panel weui-panel_access">
+    <view class="weui-panel__bd">
+      <navigator url="/pages/team/team_index" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+          <image class="weui-media-box__thumb" src="../imge/1.jpg" />
         </view>
+        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+          <view class="weui-media-box__title">新东方组</view>
+          <view class="weui-media-box__desc">组长:zzz 小组号123456</view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</view>
+
+<view class="weui-panel">
+  <view class="weui-panel__hd">组长</view>
+  <view class="weui-panel__bd">
+    <view class="weui-media-box weui-media-box_small-appmsg">
+      <view class="weui-cells weui-cells_in-small-appmsg">
+        <navigator url="/pages/team/team_member_message" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+          <view class="weui-cell__hd">
+            <image src="../imge/team_leader.png" style="width: 20px;height: 20px;margin-right: 5px" />
+          </view>
+          <view class="weui-cell__bd weui-cell_primary">
+            <view>李大三</view>
+          </view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
       </view>
+    </view>
+  </view>
+</view>
 
-       <view class="weui-panel">
-            <view class="weui-panel__hd">组长</view>
-            <view class="weui-panel__bd">
-                <view class="weui-media-box weui-media-box_small-appmsg">
-                    <view class="weui-cells weui-cells_in-small-appmsg">
-                        <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-                            <view class="weui-cell__hd"><image src="../imge/team_leader.png" style="width: 20px;height: 20px;margin-right: 5px" /></view>
-                            <view class="weui-cell__bd weui-cell_primary">
-                                <view>李大三</view>
-                            </view>
-                            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-                        </navigator>
-                    </view>
-                </view>
-            </view>
-        </view>
+<view class="weui-panel">
+  <view class="weui-panel__hd">成员</view>
+  <view class="weui-panel__bd">
+    <view class="weui-media-box weui-media-box_small-appmsg">
+      <view class="weui-cells weui-cells_in-small-appmsg">
+        <navigator url="/pages/team/team_member_message" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
 
- <view class="weui-panel">
-            <view class="weui-panel__hd">成员</view>
-            <view class="weui-panel__bd">
-                <view class="weui-media-box weui-media-box_small-appmsg">
-                    <view class="weui-cells weui-cells_in-small-appmsg">
-                        <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-                            
-                            <view class="weui-cell__bd weui-cell_primary">
-                                <view>换富二</view>
-                            </view>
-                            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-                        </navigator>
-                        <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-                            
-                            <view class="weui-cell__bd weui-cell_primary">
-                                <view>王思九</view>
-                            </view>
-                            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-                        </navigator>
-                    </view>
-                </view>
-            </view>
-            <button class="weui-btn" type="primary" style='position：fixed;bottom：0'>退出小组</button>
-        </view>
+          <view class="weui-cell__bd weui-cell_primary">
+            <view>换富二</view>
+          </view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
+        <navigator url="/pages/team/team_member_message" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
 
+          <view class="weui-cell__bd weui-cell_primary">
+            <view>王思九</view>
+          </view>
+          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+  <button class="weui-btn" type="primary" style='position：fixed;bottom：0'>退出小组</button>
+
+  <!-- 弹出菜单-->
+</view>
+<view>
+  <image src="/pages/imge/toast_task.png" class="img-style" animation="{{animCollect}}" bindtap="collect"></image>
+  <image src="/pages/imge/toast_message.png" class="img-style" animation="{{animTranspond}}" bindtap="transpond"></image>
+  <image src="/pages/imge/issue_task.png" class="img-plus-style" animation="{{animPlus}}" bindtap="plus"></image>
+</view>
+</view>
 
 <import src="../template/tabBar.wxml" />
 <template is="tabBar" data="{{tabBar: tabBar}}" />

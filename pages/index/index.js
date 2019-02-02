@@ -8,7 +8,7 @@ Page({
     motto: '学术会议与学术活动',
     userInfo: {},
     windowHeight: 0,
-    windowWidth : 0,
+    windowWidth: 0,
     inputShowed: false,
     inputVal: "",
     showMore: false,
@@ -16,7 +16,7 @@ Page({
     isEnd: false,
     conferences: []
   },
-  onLoad: function (options) {
+  onLoad: function(options) {
     //console.log(options.type)
     var that = this
     // 设置窗口大小
@@ -32,33 +32,33 @@ Page({
       }
     })
   },
-  showInput: function () {
+  showInput: function() {
     this.setData({
-        inputShowed: true
+      inputShowed: true
     });
   },
-  hideInput: function () {
+  hideInput: function() {
     this.setData({
-        inputVal: "",
-        inputShowed: false
+      inputVal: "",
+      inputShowed: false
     });
   },
-  clearInput: function () {
+  clearInput: function() {
     this.setData({
-        inputVal: "",
-        searchResults: []
+      inputVal: "",
+      searchResults: []
     });
   },
-  inputTyping: function (e) {
-    var conferences = util.conferences(e.detail.value,1)
+  inputTyping: function(e) {
+    var conferences = util.conferences(e.detail.value, 1)
     this.setData({
-        inputVal: e.detail.value,
-        searchResults: conferences
+      inputVal: e.detail.value,
+      searchResults: conferences
     });
   },
 
-  onUpper : function() {},
-  onLower : function() {
+  onUpper: function() {},
+  onLower: function() {
     var that = this
     that.setData({
       isLower: true
@@ -66,26 +66,47 @@ Page({
     // load more data
     that.loadMoreConferences()
   },
-  onScroll : function() {},
+  onScroll: function() {},
 
-  loadConferences : function() {
+  loadConferences: function() {
     var that = this;
     that.setData({
       conferences: util.conferences()
-    })    
+    })
   },
 
   currentPage: 1, // current page
-  loadMoreConferences : function() {
+  loadMoreConferences: function() {
     var that = this
     var page = that.currentPage++
-    var moreConferences = util.conferences('',page)
+      var moreConferences = util.conferences('', page)
     that.setData({
       isLower: false,
-      isEnd: moreConferences.length==0,
+      isEnd: moreConferences.length == 0,
       conferences: that.data.conferences.concat(moreConferences)
-    })    
+    })
     console.dir(page)
+  },
+  isGet: function() {
+    wx.showModal({
+      content: '领取成功',
+      showCancel: false,
+      success: function(res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+        }
+      }
+    });
+  },
+  isAttention : function(){
+    wx.showModal({
+      content: '关注成功',
+      showCancel: false,
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+        }
+      }
+    });
   }
-  
 })

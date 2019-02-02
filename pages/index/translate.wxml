@@ -6,7 +6,7 @@
         <view class="weui-cells__title">原文</view>
         <view class="weui-cells weui-cells_after-title">
             <view class="weui-cell">
-                <view class="weui-cell__bd">原文内容……</view>
+                <view class="weui-cell__bd">{{content}}</view>
             </view>
             <view class="weui-cell">
                 <!--view class="weui-cell__bd">添加更多</view-->
@@ -20,16 +20,16 @@
         <view class="weui-cells weui-cells_after-title">
             <view class="weui-cell">
                 <view class="weui-cell__bd">
-                    <textarea class="weui-textarea" placeholder="请输入译文" style="height: 3.3em" />
-                    <view class="weui-textarea-counter">0/200</view>
+                    <textarea class="weui-textarea" placeholder="请输入译文" style="height: 3.3em" maxlength="{{max}}" bindinput="userInput" />
+                    <view class="weui-textarea-counter">{{length}}/200</view>
                 </view>
             </view>
         </view>
 
-        <checkbox-group bindchange="bindAgreeChange">
+         <checkbox-group bindchange="bindAgreeChange">
             <label class="weui-agree" for="weuiAgree">
                 <view class="weui-agree__text">
-                    <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isAgree}}" />
+                    <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isAgree}}"/>
                     <view class="weui-agree__checkbox-icon">
                         <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{isAgree}}"></icon>
                     </view>

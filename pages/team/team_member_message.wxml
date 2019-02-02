@@ -1,0 +1,54 @@
+<!--pages/team/team_member_message.wxml-->
+<view class="page">
+  <view class="page__hd">
+    <view class="weui-uploader">
+      <view class="weui-uploader__bd team_create_pic">
+        <view class="weui-uploader__input-box">
+          <view class="weui-uploader__input" bindtap="chooseImage"></view>
+        </view>
+      </view>
+      <view class="weui-uploader__bd team_create_pic">
+        <text>王小二</text>
+      </view>
+    </view>
+  </view>
+  <view class="page__bd">
+    <view class="weui-panel">
+      <view class="weui-panel__hd">信息</view>
+      <view class="weui-panel__bd">
+        <view class="weui-media-box weui-media-box_small-appmsg">
+          <view class="weui-cells weui-cells_in-small-appmsg">
+            <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+              <view class="weui-cell__hd">
+                <view>邮箱</view>
+              </view>
+              <view class="weui-cell__bd weui-cell_primary">
+                <view>1646446@163.com</view>
+              </view>
+              <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+            <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+              <view class="weui-cell__hd">
+               <view>电话</view>
+              </view>
+              <view class="weui-cell__bd weui-cell_primary">
+                <view>1324644876431</view>
+              </view>
+              <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+            <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+              <view class="weui-cell__hd">
+               <view>等级</view>
+              </view>
+              <view class="weui-cell__bd weui-cell_primary">
+                <view>专家</view>
+              </view>
+              <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </navigator>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

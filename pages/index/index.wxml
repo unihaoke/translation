@@ -6,15 +6,15 @@
         <view class="weui-media-box weui-media-box_small-appmsg">
           <view class="weui-cells weui-cells_in-small-appmsg">
             <!-- 循环显示会议 -->
-            <navigator url="/pages/index/translate?key={{conf.enName}}" wx:for="{{conferences}}" wx:for-item="conf" wx:key="enName" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+            <navigator url="/pages/index/translate?content={{conf.text}}" wx:for="{{conferences}}" wx:for-item="conf" wx:key="enName" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
               <view class="weui-cell__hd">
                 <view class="data">
                   <text class="num_l">{{conf.chars}}</text>
                   <view style='margin-bottom:5px;'>
-                    <button class="weui-btn mini-btn" type="primary" size="mini">领取</button>
+                    <button class="weui-btn mini-btn" type="primary" size="mini" capture-catch:tap='isGet'>领取</button>
                   </view>
                   <view>
-                    <button class="weui-btn mini-btn" type="default" size="mini">关注</button>
+                    <button class="weui-btn mini-btn" type="default" size="mini" capture-catch:tap='isAttention'>关注</button>
                   </view>
                 </view>
               </view>

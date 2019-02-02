@@ -1,1 +1,30 @@
 /* pages/team/team_message.wxss */
+page,
+.page,
+.page__bd{
+    height: 100%;
+}
+.page__bd{
+    padding-bottom: 0;
+}
+.weui-tab__content{
+    padding-top: 60px;
+    text-align: center;
+}
+.img-plus-style {
+  height: 105rpx;
+  width: 105rpx;
+  position: absolute;
+  bottom: 150rpx;
+  right: 88rpx;
+  z-index: 80;
+}
+ 
+.img-style {
+  height: 80rpx;
+  width: 80rpx;
+  position: absolute;
+  bottom: 150rpx;
+  right: 88rpx;
+  opacity: 0;
+}
