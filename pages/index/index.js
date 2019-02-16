@@ -14,7 +14,8 @@ Page({
     showMore: false,
     isLower: false,
     isEnd: false,
-    conferences: []
+    conferences: [],
+    isSuccess: 0
   },
   onLoad: function(options) {
     //console.log(options.type)
@@ -61,52 +62,99 @@ Page({
   onLower: function() {
     var that = this
     that.setData({
-      isLower: true
+      //isLower: true
+      isEnd: true
     });
-    // load more data
-    that.loadMoreConferences()
   },
   onScroll: function() {},
 
   loadConferences: function() {
     var that = this;
-    that.setData({
-      conferences: util.conferences()
-    })
-  },
-
-  currentPage: 1, // current page
-  loadMoreConferences: function() {
-    var that = this
-    var page = that.currentPage++
-      var moreConferences = util.conferences('', page)
-    that.setData({
-      isLower: false,
-      isEnd: moreConferences.length == 0,
-      conferences: that.data.conferences.concat(moreConferences)
-    })
-    console.dir(page)
-  },
-  isGet: function() {
-    wx.showModal({
-      content: '领取成功',
-      showCancel: false,
+    wx.request({
+      url: 'http://localhost:8080/reward/2',
+      method: 'GET',
+      data: {},
       success: function(res) {
-        if (res.confirm) {
-          console.log('用户点击确定')
+        var list = res.data.data;
+        if (list == null) {
+          var toastText = '获取数据失败' + res.data.errMsg;
+          wx.showToast({
+            title: toastText,
+            icon: '',
+            duration: 20001
+          });
+        } else {
+          that.setData({
+            conferences: list
+          });
         }
       }
-    });
+    })
   },
-  isAttention : function(){
-    wx.showModal({
-      content: '关注成功',
-      showCancel: false,
-      success: function (res) {
-        if (res.confirm) {
-          console.log('用户点击确定')
+  updateGetAndAttention: function(e, content,  isGet, isAttention, flag) {
+    var that = this;
+    var userId = e.currentTarget.dataset.userid;
+    var rewardId = e.currentTarget.dataset.rewardid;
+    wx.request({
+      url: 'http://localhost:8080/reward',
+      method: 'PUT',
+      data: {
+        userId:2,
+        rewardId:rewardId,
+        isGet:isGet,
+        isAttention:isAttention
+      },
+      success: function(res) {
+        var f = res.data.flag;
+        if (!f) {
+          var toastText = content + '失败';
+          wx.showToast({
+            title: toastText,
+            icon: 'none',
+            duration: 2001
+          });
+        } else {
+          var toastText = content + '成功';
+          wx.showToast({
+            title: toastText,
+            icon: 'success',
+            duration: 2000
+          });
+          that.select(flag, rewardId);
         }
       }
-    });
+    })
+
+  },
+  //点击领取或关注后改变组件的值
+  select: function (flag, rewardId) {
+    var that = this;
+    var array = that.data.conferences;
+    var select = 'isGet';
+    if (flag == 1) {
+      select = 'isAttention';
+    }
+    //item为遍历的当前元素，index为当前索引，arr为正在操作的数组]
+    for (var index in array) {
+      if (array[index].rewardId == rewardId) {
+        var cItem = "conferences[" + index + "]." + select;
+        that.setData({
+          [cItem]:1
+        })
+      }
+    }
+    
+  },
+  isGet: function(e) {
+    var that = this;
+    var isGet = 1;
+    var isAttention = e.currentTarget.dataset.isattention;
+    that.updateGetAndAttention(e, '领取', isGet, isAttention, 0);
+  },
+  isAttention: function(e) {
+    var that = this;
+    var isGet = e.currentTarget.dataset.isget;
+    var isAttention = 1;
+    that.updateGetAndAttention(e, '关注', isGet, isAttention, 1);
   }
 })

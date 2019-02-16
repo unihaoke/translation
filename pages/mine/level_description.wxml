@@ -1,0 +1,50 @@
+<!--pages/mine/level_description.wxml-->
+<view class="page__bd">
+  <view class="weui-panel weui-panel_access">
+    <view class="weui-panel__bd">
+      <navigator url="" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+          <open-data type="userAvatarUrl"></open-data>
+        </view>
+        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+          <view class="weui-media-box__title" style='color:#CCFF00'>{{lv}}</view>
+          <view class="weui-progress">
+            <view class="weui-progress__bar">
+              <progress percent="{{progress}}" stroke-width="3" />
+            </view>
+          </view>
+          <view>总经验:0/100</view>
+        </view>
+      </navigator>
+    </view>
+
+    <view class="weui-cells__title" style='color:#CCFF00'>等级说明</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view style='color:#0066CC' class="weui-cell weui-cell_access">
+        <view class=" weui-cell__bd ">等级</view>
+        <view class="weui-cell__ft ">经验</view>
+      </view>
+      <view class="weui-cell weui-cell_access">
+        <view class=" weui-cell__bd ">LV 1</view>
+        <view class="weui-cell__ft ">100</view>
+      </view>
+      <view class="weui-cell weui-cell_access">
+        <view class="weui-cell__bd ">LV 2</view>
+        <view class="weui-cell__ft ">200</view>
+      </view>
+      <view class="weui-cell weui-cell_access">
+        <view class="weui-cell__bd ">LV 3</view>
+        <view class="weui-cell__ft ">300</view>
+      </view>
+      <view class="weui-cell weui-cell_access">
+        <view class="weui-cell__bd ">LV 4</view>
+        <view class="weui-cell__ft ">400</view>
+      </view>
+      <view class="weui-cell weui-cell_access">
+        <view class="weui-cell__bd ">LV 5</view>
+        <view class="weui-cell__ft ">500</view>
+      </view>
+    </view>
+
+  </view>
+</view>

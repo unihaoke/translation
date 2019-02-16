@@ -1,37 +1,37 @@
 <!--pages/team/team.wxml-->
 <view class="page">
-<scroll-view class='page' scroll-y="true"  >
-<view class="page__bd">
-        <view class="weui-panel weui-panel_access">
-            <view class="weui-panel__hd">小组列表</view>
-            <view class="weui-panel__bd">
-                <navigator url="/pages/team/team_index" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active" >
-                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-                        <image class="weui-media-box__thumb" src="../imge/1.jpg" />
-                    </view>
-                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-                        <view class="weui-media-box__title">新东方组</view>
-                        <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
-                    </view>
-                </navigator>
-                <navigator url="/pages/team/team_index" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-                    <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
-                        <image class="weui-media-box__thumb" src="../imge/2.jpg" />
-                    </view>
-                    <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
-                        <view class="weui-media-box__title">蓝翔技校组</view>
-                        <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
-                    </view>
-                </navigator>
+  <scroll-view class='page' scroll-y="true">
+    <view class="page__bd">
+      <view class="weui-panel weui-panel_access">
+        <view class="weui-panel__hd">小组列表</view>
+        <view class="weui-panel__bd">
+          <navigator url="/pages/team/team_index" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+              <image class="weui-media-box__thumb" src="../imge/1.jpg" />
             </view>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+              <view class="weui-media-box__title">新东方组</view>
+              <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
+            </view>
+          </navigator>
+          <navigator url="/pages/team/team_index" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+              <image class="weui-media-box__thumb" src="../imge/2.jpg" />
+            </view>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+              <view class="weui-media-box__title">蓝翔技校组</view>
+              <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
+            </view>
+          </navigator>
         </view>
       </view>
-</scroll-view>
+    </view>
+  </scroll-view>
 
 
 
-<!-- 弹出菜单-->
-<view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+  <!-- 弹出菜单-->
+  <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
   <view class="modal-dialog" wx:if="{{showModal}}">
     <view class="modal-title">加入小组</view>
     <view class="modal-content">
@@ -45,21 +45,9 @@
     </view>
   </view>
 
-
-
-
-
-
-
-
-
-
-
-
-
-<view>
-  <image src="/pages/imge/toast_task.png" class="img-style" animation="{{animCollect}}" bindtap="collect"></image>
-  <image src="/pages/imge/toast_message.png" class="img-style" animation="{{animTranspond}}" bindtap="transpond"></image>
-  <image src="/pages/imge/issue_task.png" class="img-plus-style" animation="{{animPlus}}" bindtap="plus"></image>
-</view>
+  <view>
+    <image src="/pages/imge/toast_task.png" class="img-style" animation="{{animCollect}}" bindtap="collect"></image>
+    <image src="/pages/imge/toast_message.png" class="img-style" animation="{{animTranspond}}" bindtap="transpond"></image>
+    <image src="/pages/imge/issue_task.png" class="img-plus-style" animation="{{animPlus}}" bindtap="plus"></image>
+  </view>
 </view>

@@ -12,62 +12,73 @@
       </view>
       <view class="weui-tab__panel">
         <view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_select">
+              <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                <view class="weui-label">任务进度</view>
+              </view>
+              <view class="weui-cell__bd">
+                <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                  <button type="default">{{array[index]}}</button>
+                </picker>
+              </view>
+            </view>
+          </view>
+
           <scroll-view class='page' scroll-y="true">
             <view class="weui-panel">
-              <view class="weui-panel__bd">
-                <view class="weui-media-box weui-media-box_text">
-                  <view class="weui-media-box__title weui-media-box__title_in-text">金庸小说翻译</view>
-                  <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
-                  <view class="weui-media-box__info">
-                    <view class="weui-media-box__info__meta">英译中</view>
-                    <view class="weui-media-box__info__meta">剩余2天</view>
-                    <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">+100经验</view>
-                    <view class="weui-media-box__info__meta">已完成</view>
+              <navigator url='/pages/mine/publish_trans'>
+                <view class="weui-panel__bd">
+                  <view class="weui-media-box weui-media-box_text">
+                    <view class="weui-media-box__title weui-media-box__title_in-text">金庸小说翻译</view>
+                    <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
+                    <view class="weui-media-box__info">
+                      <view class="weui-media-box__info__meta">英译中</view>
+                      <view class="weui-media-box__info__meta">剩余2天</view>
+                      <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">+100经验</view>
+                      <view class="weui-media-box__info__meta">{{status}}</view>
+                    </view>
                   </view>
                 </view>
-              </view>
+              </navigator>
             </view>
           </scroll-view>
         </view>
 
         <view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_select">
+              <view class="weui-cell__hd weui-cell__hd_in-select-after">
+                <view class="weui-label">任务进度</view>
+              </view>
+              <view class="weui-cell__bd">
+                <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+                  <button type="default">{{array[index]}}</button>
+                </picker>
+              </view>
+            </view>
+          </view>
           <scroll-view class='page' scroll-y="true">
             <view class="weui-panel">
-              <view class="weui-panel__bd">
-                <view class="weui-media-box weui-media-box_text">
-                  <view class="weui-media-box__title weui-media-box__title_in-text">金庸小说翻译</view>
-                  <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
-                  <view class="weui-media-box__info">
-                    <view class="weui-media-box__info__meta">英译中</view>
-                    <view class="weui-media-box__info__meta">剩余2天</view>
-                    <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">+100经验</view>
-                    <view class="weui-media-box__info__meta">未完成</view>
+              <navigator url=''>
+                <view class="weui-panel__bd">
+                  <view class="weui-media-box weui-media-box_text">
+                    <view class="weui-media-box__title weui-media-box__title_in-text">金庸小说翻译</view>
+                    <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
+                    <view class="weui-media-box__info">
+                      <view class="weui-media-box__info__meta">英译中</view>
+                      <view class="weui-media-box__info__meta">剩余2天</view>
+                      <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">+100经验</view>
+                      <view class="weui-media-box__info__meta">{{status}}</view>
+                    </view>
                   </view>
                 </view>
-              </view>
+              </navigator>
             </view>
           </scroll-view>
         </view>
 
-        <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
-          <scroll-view class='page' scroll-y="true">
-            <view class="weui-panel">
-              <view class="weui-panel__bd">
-                <view class="weui-media-box weui-media-box_text">
-                  <view class="weui-media-box__title weui-media-box__title_in-text">金庸小说翻译</view>
-                  <view class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</view>
-                  <view class="weui-media-box__info">
-                    <view class="weui-media-box__info__meta">英译中</view>
-                    <view class="weui-media-box__info__meta">剩余2天</view>
-                    <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">+100经验</view>
-                    <view class="weui-media-box__info__meta">超时</view>
-                  </view>
-                </view>
-              </view>
-            </view>
-          </scroll-view>
-
-        </view>
       </view>
     </view>
   </view>

@@ -1,4 +1,5 @@
-<!--index.wxml-->
+
+.<!--index.wxml-->
 <scroll-view class="page" scroll-y="true" style="height:{{windowHeight}}px;" bindscrolltoupper="onUpper" bindscrolltolower="onLower" bindscroll="onScroll">
   <view class="page__bd">        
     <view class="weui-panel weui-panel_access">
@@ -6,21 +7,25 @@
         <view class="weui-media-box weui-media-box_small-appmsg">
           <view class="weui-cells weui-cells_in-small-appmsg">
             <!-- 循环显示会议 -->
-            <navigator url="/pages/index/translate?content={{conf.text}}" wx:for="{{conferences}}" wx:for-item="conf" wx:key="enName" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+            <navigator url="/pages/index/translate?content={{conf.rewardInformation}}&rewardId={{conf.rewardId}}&isGet={{conf.isGet}}" wx:for="{{conferences}}" wx:for-item="conf" wx:key="enName" class="weui-cell weui-cell_access" hover-class="weui-cell_active" >
               <view class="weui-cell__hd">
                 <view class="data">
-                  <text class="num_l">{{conf.chars}}</text>
+                  <text class="num_l">{{conf.id}}</text>
                   <view style='margin-bottom:5px;'>
-                    <button class="weui-btn mini-btn" type="primary" size="mini" capture-catch:tap='isGet'>领取</button>
+                    <button class="weui-btn mini-btn" type="primary" size="mini" capture-catch:tap='isGet' wx:if="{{conf.isGet == 0}}" data-isGet='{{conf.isGet}}' data-isAttention='{{conf.isAttention}}'  data-userid='{{conf.userId}}' data-rewardid='{{conf.rewardId}}'>领取</button>
+                    <button class="weui-btn mini-btn" type="primary" size="mini"  wx:else >已领取</button>
                   </view>
                   <view>
-                    <button class="weui-btn mini-btn" type="default" size="mini" capture-catch:tap='isAttention'>关注</button>
+                    <button class="weui-btn mini-btn" type="default" size="mini" capture-catch:tap='isAttention' wx:if="{{conf.isAttention == 0}}" data-isGet='{{conf.isGet}}' data-isAttention='{{conf.isAttention}}' data-userid='{{conf.userId}}' data-rewardid='{{conf.rewardId}}'>关注</button>
+                    <button class="weui-btn mini-btn" type="default" size="mini"  wx:else>已关注</button>
                   </view>
                 </view>
               </view>
               <view class="weui-cell__bd weui-cell_primary">
-                <view class="weui-media-box__title_in-text">{{conf.text}}</view>
-                <view class="weui-media-box__desc">{{conf.trans}}, 剩{{conf.expired}}, {{conf.fee}} 元/千字, +{{conf.awards}}经验
+                <view class="weui-media-box__title_in-text">{{conf.rewardInformation}}</view>
+                <view class="weui-media-box__desc" wx:if="{{rewardType == 0}}">英译中, 剩{{conf.rewardSchedule}}, {{conf.rewardMoney}} 元/千字, +{{conf.rewardExperience}}经验
+                </view>
+                <view class="weui-media-box__desc" wx:else="{{rewardType == 1}}">中译英, 剩{{conf.rewardSchedule}}, {{conf.rewardMoney}} 元/千字, +{{conf.rewardExperience}}经验
                 </view>
               </view>
             </navigator>

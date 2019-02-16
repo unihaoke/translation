@@ -35,7 +35,9 @@ Page({
     })
   },
   collect: function () {
-    console.log("collect")
+    wx.navigateTo({
+      url: '/pages/team/team_publish_task',
+    })
   },
 
   //弹出动画

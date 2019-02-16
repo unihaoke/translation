@@ -20,7 +20,8 @@
         <view class="weui-cells weui-cells_after-title">
             <view class="weui-cell">
                 <view class="weui-cell__bd">
-                    <textarea class="weui-textarea" placeholder="请输入译文" style="height: 3.3em" maxlength="{{max}}" bindinput="userInput" />
+                    <textarea class="weui-textarea" wx:if="{{translation == null}}" placeholder="请输入译文" style="height: 3.3em" maxlength="{{max}}" bindinput="userInput" />
+                    <textarea class="weui-textarea" wx:else placeholder="{{translation}}" style="height: 3.3em" maxlength="{{max}}" bindinput="userInput" />
                     <view class="weui-textarea-counter">{{length}}/200</view>
                 </view>
             </view>
@@ -39,7 +40,7 @@
         </checkbox-group>
 
         <view class="weui-btn-area">
-            <button class="weui-btn" type="primary" bindtap="showTopTips">确定</button>
+            <button class="weui-btn" type="primary" bindtap="submit">提交</button>
         </view>
     </view>
 </view>

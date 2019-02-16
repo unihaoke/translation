@@ -1,0 +1,38 @@
+<!--pages/mine/publish_trans.wxml-->
+
+<view class="page" xmlns:wx="http://www.w3.org/1999/xhtml">
+  <view class="page__bd">
+    <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">错误提示</view>
+
+    <view class="weui-cells__title">原文</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">{{content}}</view>
+      </view>
+      <view class="weui-cell">
+        <!--view class="weui-cell__bd">添加更多</view-->
+        <button class="weui-btn mini-btn" type="default" size="mini">
+          机器辅助翻译
+        </button>
+      </view>
+    </view>
+
+    <view class="weui-cells__title">译文</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <view class="weui-cell">
+            <view class="weui-cell__bd">{{content}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+
+
+    <view class="weui-btn-area">
+      <button class="weui-btn" type="primary" plain="true">删除</button>
+      <button class="weui-btn" type="primary" plain="true">采纳</button>
+    </view>
+  </view>
+</view>
