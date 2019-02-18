@@ -6,7 +6,7 @@ Page({
    */
   data: {
     showTopTips: false,
-    ishidden:false,
+    ishidden: false,
     checkboxItems: [{
         name: '计算机',
         value: '0',
@@ -20,7 +20,7 @@ Page({
         name: '体育',
         value: '2'
       },
-      
+
     ],
     countries: ["英译中", "中译英"],
     countryIndex: 0,
@@ -30,7 +30,8 @@ Page({
     total_length: 200,
     content: null,
     rewardSchedule: 0,
-    money: 0
+    money: 0,
+    categoryId:1
   },
 
   showTopTips: function() {
@@ -156,30 +157,30 @@ Page({
   onShareAppMessage: function() {
 
   },
-  more:function(e){
+  more: function(e) {
     var that = this;
     that.setData({
       checkboxItems: [{
-        name: '计算机',
-        value: '0',
-        checked: true
-      },
-      {
-        name: '金融',
-        value: '1'
-      },
-      {
-        name: '体育',
-        value: '2'
-      },
-      {
-        name: '历史',
-        value: '3'
-      },
-      {
-        name: '科技',
-        value: '4'
-      },
+          name: '计算机',
+          value: '0',
+          checked: true
+        },
+        {
+          name: '金融',
+          value: '1'
+        },
+        {
+          name: '体育',
+          value: '2'
+        },
+        {
+          name: '历史',
+          value: '3'
+        },
+        {
+          name: '科技',
+          value: '4'
+        },
         {
           name: '小说',
           value: '5'
@@ -189,11 +190,17 @@ Page({
           value: '6'
         },
       ],
-      ishidden:true
+      ishidden: true
     })
   },
   moneyinput: function(e) {
     var that = this;
+    var money = e.detail.value;
+    if(money == 0){
+      that.setData({
+        categoryId:1
+      })
+    }
     that.setData({
       money: e.detail.value
     })
@@ -212,18 +219,18 @@ Page({
     var myDate = new Date();
     that.changeDate(myDate.getTime(), endtime);
     wx.request({
-      url: 'http://localhost:8080/reward/translation',
+      url: 'http://localhost:8080/reward',
       method: 'POST',
       data: {
         userId: 2,
         rewardStatus: 0, //未采纳
-        rewardInformation: content,
+        rewardInformation: that.data.content,
         rewardSchedule: that.data.rewardSchedule,
         rewardExperience: 5,
-        categoryId: 1,
+        categoryId: that.data.categoryId,
         rewardType: that.data.countryIndex,
-        rewardMoney: taht.data.money,
-        deadline: endtime
+        rewardMoney: that.data.money,
+        deadline: endtime + ':00'
       },
       success: function(res) {
         var flag = res.data.flag;
@@ -235,17 +242,25 @@ Page({
             duration: 2000
           });
         } else {
-          var toastText = '提交成功';
-          wx.showToast({
-            title: toastText,
-            icon: 'success',
-            duration: 2000
+
+          wx.showModal({
+            content: '提交成功',
+            showCancel: false,
+            success: function(res) {
+              if (res.confirm) {
+                wx.navigateBack({
+                  delta: 1
+                })
+              }
+            }
           });
+
         }
       }
     })
   },
   changeDate: function(startTime, endTime) {
+    var that = this;
     //日期格式化
     // var start_date = new Date(startTime.replace(/-/g, "/"));
     var end_date = new Date(endTime.replace(/-/g, "/"));
